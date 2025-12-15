@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظمة خلاوي عباد الرحمن للإغاثة والتنمية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #159895;
+            --accent-color: #57c5b6;
+            --light-color: #f8f9fa;
+            --dark-color: #333;
+            --success-color: #28a745;
+            --gold-color: #daa520;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 60px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--gold-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .donate-btn {
+            background-color: var(--gold-color);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #b8860b;
+            transform: translateY(-3px);
+        }
+        
+        .page-section {
+            padding: 80px 0;
+            display: none;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .stats {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            margin-top: 80px;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+        }
+        
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            margin-top: 25px;
+        }
+        
+        .about-text h3:first-child {
+            margin-top: 0;
+        }
+        
+        .about-text ul {
+            padding-right: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text li {
+            margin-bottom: 10px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .values {
+            margin-top: 60px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 25px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .value-item i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-date {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .news-title {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .contact-form button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .donate-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .donate-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .donate-option {
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 25px 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .donate-option:hover, .donate-option.active {
+            border-color: var(--primary-color);
+            background-color: rgba(26, 95, 122, 0.05);
+        }
+        
+        .donate-option h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .custom-donate {
+            margin-top: 30px;
+        }
+        
+        .custom-donate input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        .donate-methods {
+            margin-top: 40px;
+        }
+        
+        .method-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 2.5rem;
+            color: #555;
+        }
+        
+        /* صفحة طرق الدفع */
+        .payment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .payment-methods {
+            margin-bottom: 40px;
+        }
+        
+        .payment-method {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border-right: 5px solid var(--primary-color);
+        }
+        
+        .payment-method h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .account-details {
+            background-color: #e8f4fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #b8d9f0;
+        }
+        
+        .account-details p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .account-details strong {
+            color: var(--primary-color);
+        }
+        
+        .phone-numbers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .phone-number {
+            background-color: #f0f9f0;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #c8e6c9;
+        }
+        
+        .phone-number i {
+            font-size: 2rem;
+            color: var(--success-color);
+            margin-bottom: 15px;
+        }
+        
+        .phone-number p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--gold-color);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* التجاوب مع الأجهزة المحمولة */
+        @media (max-width: 992px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .payment-container {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .page-section {
+                padding: 60px 0;
+            }
+            
+            .account-details p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الترويسة -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-hands-helping" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                <div>
+                    <h1>خلاوي <span>عباد الرحمن</span></h1>
+                    <p style="font-size: 0.9rem; color: #666;">للإغاثة والتنمية</p>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#" class="nav-link active" data-page="home">الرئيسية</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">من نحن</a></li>
+                    <li><a href="#" class="nav-link" data-page="payment">طرق الدفع</a></li>
+                    <li><a href="#" class="nav-link" data-page="news">الأخبار</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">تواصل معنا</a></li>
+                    <li><a href="#" class="nav-link donate-btn" data-page="donate">تبرع الآن</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- قسم البطل -->
+    <section class="hero">
+        <div class="container">
+            <h2>منظمة خلاوي عباد الرحمن للإغاثة والتنمية</h2>
+            <p>منظمة وطنية مسجلة في مفوضية العون الإنساني السوداني، تعمل في مجال الإغاثة ودرء آثار الكوارث والتنمية الشاملة في السودان.</p>
+            <a href="#" class="cta-button" data-page="donate">ادعم أعمالنا الإنسانية</a>
+        </div>
+    </section>
+    
+    <!-- الصفحة الرئيسية -->
+    <section id="home" class="page-section active">
+        <div class="container">
+            <h2 class="section-title">مرحباً بكم في منظمتنا</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">
+                نعمل منذ عام 1995م في خدمة المجتمع السوداني عبر برامج إنسانية وتنموية متكاملة، بدءاً من تحفيظ القرآن الكريم وصولاً إلى مشاريع الإغاثة والتنمية المستدامة.
+            </p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-quran"></i>
+                    <h3>تحفيظ القرآن الكريم</h3>
+                    <p>ستة فروع رئيسية لتحفيظ القرآن الكريم وعلومه في مختلف أنحاء السودان.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-hands"></i>
+                    <h3>الإغاثة العاجلة</h3>
+                    <p>تقديم المساعدات العاجلة للمتضررين من الكوارث والأزمات الإنسانية.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-hotel"></i>
+                    <h3>المشاريع التنموية</h3>
+                    <p>بناء المرافق التعليمية والصحية ودور العبادة في المناطق المحتاجة.</p>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="container stats-container">
+                    <div class="stat-item">
+                        <h3>27+</h3>
+                        <p>سنة من العطاء</p>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <h3>6</h3>
+                        <p>فروع رئيسية</p>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <h3>100+</h3>
+                        <p>مشروع إغاثة وتنمية</p>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <h3>30</h3>
+                        <p>عضو في الجمعية العمومية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- صفحة من نحن -->
+    <section id="about" class="page-section">
+        <div class="container">
+            <h2 class="section-title">من نحن</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>منظمة خلاوي عباد الرحمن للإغاثة والتنمية</h3>
+                    <p>هي منظمة وطنية مسجلة في مفوضية العون الإنساني السوداني وفقاً لقانون العمل التطوعي للعام 2006م.</p>
+                    <p>تعمل في مجال الإغاثة ودرء آثار الكوارث وفي مجال التنمية متثملاً في بناء المرافق التعليمية والصحية ودور العبادة (المساجد). كما يسهم في التنمية البشرية من خلال الدورات التدريبية المختلفة (دورات علمية - شرعية - صناعية-زراعية-صحية).</p>
+                    
+                    <h3>أساس الفكرة</h3>
+                    <p>إن اللبنة الأولى للمنظمة كانت في العام 1995م بتسجيل مجمع خلاوي عباد الرحمن لتحفيظ القرآن الكريم وعلومه كمجمع يعمل في مجال تحفيظ القرآن الكريم وعلومه وتطور حتى وصل إلى ستة فروع رئيسية وهو من المجمعات العريقة بدولة السودان مهتم بشأن تحفيظ وإتقان القرآن الكريم خاصة بدارفور ورئاسته بالخرطوم عاصمة دولة السودان.</p>
+                    <p>تطور المجمع ليشمل أهداف إنسانية وإجتماعية زيادة على الهدف الرئيسي (تحفيظ وإتقان القرآن الكريم) ليشهد ميلاد منظمة خلاوي عباد الرحمن للإغاثة والتنمية.</p>
+                    
+                    <h3>المقر الرئيسي للمنظمة</h3>
+                    <p>بورسودان عاصمة السودان الإدارية.</p>
+                    
+                    <h3>أهم الإنجازات</h3>
+                    <p>نجحت المنظمة في تنفيذ عدد من المشاريع الإغاثية المتنوعة أهمها المواد الغذائية عبر السلال الغذائية والإطعام عبر التكايا والمطابخ الخيرية في مختلف المناطق بدولة السودان.</p>
+                    <p>كما نجحت المنظمة في تنفيذ عدد من الإنشاءات التنموية التعليمية (مظلات- خلاوي- دور نساء- مساجد).</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="أنشطة المنظمة">
+                </div>
+            </div>
+            
+            <div class="values" style="margin-top: 60px;">
+                <h3 class="section-title" style="font-size: 1.8rem;">الهيكل الإداري</h3>
+                
+                <div class="values-grid">
+                    <div class="value-item">
+                        <i class="fas fa-users"></i>
+                        <h4>الجمعية العمومية</h4>
+                        <p>تتكون من ثلاثين عضواً</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <i class="fas fa-user-tie"></i>
+                        <h4>المكتب التنفيذي</h4>
+                        <p>يتكون من خمس إداريين</p>
+                    </div>
+                </div>
+                
+                <div style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 30px;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 20px; text-align: center;">أعضاء المكتب التنفيذي</h4>
+                    <ul style="columns: 2; column-gap: 40px;">
+                        <li style="margin-bottom: 15px; padding-right: 15px;">الشيخ / نورالدائم حسن محمد - مدير المنظمة</li>
+                        <li style="margin-bottom: 15px; padding-right: 15px;">الاستاذ / يوسف عبدالله آدم بركة - الأمين العام</li>
+                        <li style="margin-bottom: 15px; padding-right: 15px;">الاستاذة / مودة محمد محمد عيسى - الأمين المالي</li>
+                        <li style="margin-bottom: 15px; padding-right: 15px;">محمد الحافظ أبو الخيرات - مدير المشروعات</li>
+                        <li style="margin-bottom: 15px; padding-right: 15px;">عماد حسين أحمد داوود - الأمين الإعلامي</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- صفحة طرق الدفع -->
+    <section id="payment" class="page-section">
+        <div class="container">
+            <h2 class="section-title">طرق الدفع والتبرع</h2>
+            
+            <div class="payment-container">
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <h3><i class="fas fa-university"></i> الحساب البنكي</h3>
+                        <p>يمكنكم التبرع للمنظمة عبر الحساب البنكي التالي:</p>
+                        
+                        <div class="account-details">
+                            <p><strong>رقم الحساب:</strong> 30031943</p>
+                            <p><strong>اسم الحساب:</strong> منظمة خلاوي عباد الرحمن للإغاثة والتنمية</p>
+                            <p><strong>يمكنك التبرع عبر أي فرع من فروع البنك في جميع أنحاء السودان</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method">
+                        <h3><i class="fas fa-phone"></i> الدفع عبر الهاتف</h3>
+                        <p>للتبرع أو الاستفسار عن طرق الدفع الأخرى، يمكنكم التواصل معنا على الأرقام التالية:</p>
+                        
+                        <div class="phone-numbers">
+                            <div class="phone-number">
+                                <i class="fas fa-phone-alt"></i>
+                                <p>0116039396</p>
+                            </div>
+                            
+                            <div class="phone-number">
+                                <i class="fas fa-mobile-alt"></i>
+                                <p>0968897850</p>
+                            </div>
+                        </div>
+                        
+                        <p style="margin-top: 20px; font-style: italic; color: #555;">نحن متاحون للرد على استفساراتكم خلال ساعات العمل الرسمية.</p>
+                    </div>
+                </div>
+                
+                <div style="background-color: #fff8e1; padding: 25px; border-radius: 8px; border-right: 5px solid var(--gold-color);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-info-circle"></i> ملاحظات هامة
+                    </h3>
+                    <ul style="padding-right: 20px;">
+                        <li style="margin-bottom: 10px;">يرجى الاحتفاظ بإيصال الدفع لإثبات عملية التبرع.</li>
+                        <li style="margin-bottom: 10px;">جميع التبرعات تخضع للمراقبة والمحاسبة الدقيقة.</li>
+                        <li style="margin-bottom: 10px;">سيصلكم تقرير دوري عن مشاريع المنظمة وجهودها الإنسانية.</li>
+                        <li>للاستفسارات المالية، يرجى التواصل مع الأمين المالي للأمانة.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- صفحة الأخبار -->
+    <section id="news" class="page-section">
+        <div class="container">
+            <h2 class="section-title">أخبار وأنشطة المنظمة</h2>
+            
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="توزيع مساعدات">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">15 مايو 2023</div>
+                        <h3 class="news-title">توزيع سلال غذائية في ولاية دارفور</h3>
+                        <p>قامت المنظمة بتوزيع 500 سلة غذائية على الأسر المتضررة في مناطق دارفور ضمن برنامج الإغاثة العاجلة.</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="دورة تدريبية">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">2 أبريل 2023</div>
+                        <h3 class="news-title">انطلاق دورة تدريبية في الخياطة والتطريز</h3>
+                        <p>بدأت الدورة التدريبية في الخياطة والتطريز لتمكين النساء في الريف السوداني، بمشاركة 50 متدربة.</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1562564055-71e1d37d7c19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="بناء مدرسة">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">20 يونيو 2023</div>
+                        <h3 class="news-title">افتتاح مظلة تعليمية جديدة في كردفان</h3>
+                        <p>تم افتتاح مظلة تعليمية جديدة تستوعب 200 طالب في منطقة كردفان ضمن مشاريع التنمية التعليمية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- صفحة تواصل معنا -->
+    <section id="contact" class="page-section">
+        <div class="container">
+            <h2 class="section-title">تواصل معنا</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>المقر الرئيسي</h3>
+                            <p>بورسودان، عاصمة السودان الإدارية</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>هواتف التواصل</h3>
+                            <p>0116039396</p>
+                            <p>0968897850</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>البريد الإلكتروني</h3>
+                            <p>info@khalawi-rahman.org</p>
+                            <p>support@khalawi-rahman.org</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>ساعات العمل</h3>
+                            <p>السبت - الخميس: 8:00 صباحاً - 3:00 عصراً</p>
+                            <p>الجمعة: عطلة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">أرسل رسالة</h3>
+                    <form id="messageForm">
+                        <input type="text" placeholder="اسمك الكامل" required>
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <input type="text" placeholder="موضوع الرسالة" required>
+                        <textarea rows="5" placeholder="نص الرسالة" required></textarea>
+                        <button type="submit">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- صفحة التبرع -->
+    <section id="donate" class="page-section">
+        <div class="container">
+            <h2 class="section-title">ادعم أعمالنا الإنسانية</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">
+                تبرعك يساهم في تنفيذ مشاريع الإغاثة العاجلة والتنمية المستدامة، ويساعدنا على الوصول إلى المزيد من المحتاجين في جميع أنحاء السودان.
+            </p>
+            
+            <div class="donate-container">
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">اختر مبلغ التبرع</h3>
+                    
+                    <div class="donate-options">
+                        <div class="donate-option" data-amount="100">
+                            <h3>100 جنيه</h3>
+                            <p>سلة غذائية صغيرة</p>
+                        </div>
+                        
+                        <div class="donate-option" data-amount="500">
+                            <h3>500 جنيه</h3>
+                            <p>سلة غذائية متكاملة</p>
+                        </div>
+                        
+                        <div class="donate-option active" data-amount="1000">
+                            <h3>1000 جنيه</h3>
+                            <p>دعم مشروع تعليمي</p>
+                        </div>
+                        
+                        <div class="donate-option" data-amount="5000">
+                            <h3>5000 جنيه</h3>
+                            <p>بناء مظلة تعليمية</p>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-donate">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">أو اختر مبلغاً آخر</h3>
+                        <input type="number" id="customAmount" placeholder="اكتب المبلغ بالجنيه السوداني">
+                    </div>
+                    
+                    <button class="cta-button" style="margin-top: 30px; width: 100%;" id="donateButton">تبرع الآن</button>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">أوجه صرف التبرعات</h3>
+                    
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <i class="fas fa-utensils"></i>
+                            <h4>الإغاثة الغذائية</h4>
+                            <p>توفير السلال الغذائية والتكايا</p>
+                        </div>
+                        
+                        <div class="value-item">
+                            <i class="fas fa-school"></i>
+                            <h4>المرافق التعليمية</h4>
+                            <p>بناء المدارس والمظلات والخلاوي</p>
+                        </div>
+                        
+                        <div class="value-item">
+                            <i class="fas fa-user-graduate"></i>
+                            <h4>التدريب والتأهيل</h4>
+                            <p>دورات تدريبية متنوعة</p>
+                        </div>
+                        
+                        <div class="value-item">
+                            <i class="fas fa-mosque"></i>
+                            <h4>دور العبادة</h4>
+                            <p>بناء وترميم المساجد</p>
+                        </div>
+                    </div>
+                    
+                    <div class="donate-methods">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">طرق الدفع المتاحة</h3>
+                        <p>للتفاصيل الكاملة حول طرق الدفع، يرجى زيارة صفحة <a href="#" class="internal-link" data-page="payment">طرق الدفع</a> أو التواصل معنا على الأرقام المذكورة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- التذييل -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>منظمة خلاوي عباد الرحمن للإغاثة والتنمية</h3>
+                    <p>منظمة وطنية سودانية تعمل في مجال الإغاثة الإنسانية والتنمية المستدامة، مسجلة رسمياً في مفوضية العون الإنساني.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#" data-page="home">الرئيسية</a></li>
+                        <li><a href="#" data-page="about">من نحن</a></li>
+                        <li><a href="#" data-page="payment">طرق الدفع</a></li>
+                        <li><a href="#" data-page="news">الأخبار</a></li>
+                        <li><a href="#" data-page="contact">تواصل معنا</a></li>
+                        <li><a href="#" data-page="donate">تبرع الآن</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>فروعنا</h3>
+                    <ul>
+                        <li>بورسودان - المقر الرئيسي</li>
+                        <li>الخرطوم - فرع رئيسي</li>
+                        <li>دارفور - فرع إغاثة</li>
+                        <li>كردفان - فرع تنمية</li>
+                        <li>ولايات السودان المختلفة</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>النشرة البريدية</h3>
+                    <p>اشترك في نشرتنا البريدية لتكون على اطلاع بآخر أنشطة ومشاريع المنظمة.</p>
+                    <div style="margin-top: 15px;">
+                        <input type="email" placeholder="بريدك الإلكتروني" style="padding: 10px; width: 70%; border: none; border-radius: 4px;">
+                        <button style="background-color: var(--accent-color); color: white; border: none; padding: 10px 15px; border-radius: 4px; margin-right: 5px;">اشترك</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; منظمة خلاوي عباد الرحمن للإغاثة والتنمية 2023</p>
+                <p>مسجلة في مفوضية العون الإنساني السوداني - قانون العمل التطوعي 2006</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link, .internal-link');
+            const pageSections = document.querySelectorAll('.page-section');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            const donateOptions = document.querySelectorAll('.donate-option');
+            const customAmountInput = document.getElementById('customAmount');
+            const donateButton = document.getElementById('donateButton');
+            
+            let currentPage = 'home';
+            let selectedAmount = 1000;
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    pageSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === targetPage) {
+                            section.classList.add('active');
+                        }
+                    });
+                    
+                    navMenu.classList.remove('show');
+                    
+                    currentPage = targetPage;
+                    
+                    if (targetPage === 'payment') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                });
+            });
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
+            });
+            
+            donateOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    donateOptions.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    selectedAmount = this.getAttribute('data-amount');
+                    customAmountInput.value = '';
+                });
+            });
+            
+            customAmountInput.addEventListener('input', function() {
+                if (this.value) {
+                    donateOptions.forEach(item => item.classList.remove('active'));
+                    selectedAmount = this.value;
+                }
+            });
+            
+            donateButton.addEventListener('click', function() {
+                const amount = selectedAmount;
+                alert(`شكراً لتبرعك بمبلغ ${amount} جنيه سوداني! يرجى زيارة صفحة "طرق الدفع" للحصول على معلومات الحساب البنكي وأرقام الهواتف لإتمام عملية التبرع.`);
+                
+                navLinks.forEach(item => item.classList.remove('active'));
+                document.querySelector('[data-page="payment"]').classList.add('active');
+                
+                pageSections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === 'payment') {
+                        section.classList.add('active');
+                    }
+                });
+                
+                navMenu.classList.remove('show');
+                currentPage = 'payment';
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            const contactForm = document.getElementById('messageForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('شكراً لك! تم استلام رسالتك وسنرد عليك في أقرب وقت.');
+                    contactForm.reset();
+                });
+            }
+            
+            document.addEventListener('click', function(e) {
+                if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
